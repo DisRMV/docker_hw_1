@@ -1,0 +1,15 @@
+**/__pycache__
+**/.idea
+**/.git
+**/.gitignore
+**/.cache
+**/.venv
+**/.env
+**/venv
+**/env
+**/ssh
+**/Dockerfile
+docker-compose.yml
+
+README.md
+requests-examples.http
