@@ -5,7 +5,8 @@ services:
   backend:
     build: .
     depends_on:
-      -  postgres
+      - postgres
+      - migration
     env_file: 
       - .env
 
@@ -18,7 +19,15 @@ services:
 
   nginx:
     image: nginx
+    depends_on:
+      - backend
     ports:
       - 8080:8080
-    
 
+  migration:
+    build: .
+    env_file:
+      - .env
+    depends_on:
+      - postgres
+    command: python ~/task_3/manage.py migrate  --noinput
